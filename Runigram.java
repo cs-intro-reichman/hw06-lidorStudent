@@ -24,6 +24,9 @@ public class Runigram {
 		
 		//// Write here whatever code you need in order to test your work.
 		//// You can reuse / overide the contents of the imageOut array.
+		imageOut = flippedVertically(tinypic);
+		System.out.println();
+		print(imageOut);
 	}
 
 	/** Returns a 2D array of Color values, representing the image data
@@ -103,7 +106,7 @@ public class Runigram {
 		Color[][] newImage = new Color[rows][cols];
 		for (int i = 0; i < rows; i++) {
 			for (int j = 0; j < cols; j++) {
-				newImage[i][j] = image[i][j];
+				newImage[i][j] = image[rows - i - 1][j];
 			}
 		}
 		return newImage;
