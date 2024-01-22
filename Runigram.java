@@ -181,7 +181,10 @@ public class Runigram {
 	 */
 	public static Color blend(Color c1, Color c2, double alpha) {
 		//// Replace the following statement with your code
-		return null;
+		double r = alpha * c1.getRed() + (1 - alpha) * c2.getRed();
+		double g = alpha * c1.getGreen() + (1 - alpha) * c2.getGreen();
+		double b = alpha * c1.getBlue() + (1 - alpha) * c2.getBlue();
+		return new Color((int) r, (int) g, (int) b);
 	}
 	
 	/**
