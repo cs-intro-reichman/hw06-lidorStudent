@@ -31,6 +31,10 @@ public class Runigram {
 		imageOut = grayScaled(tinypic);
 		System.out.println();
 		print(imageOut);
+
+		imageOut = scaled(tinypic, 3, 5);
+		System.out.println();
+		print(imageOut);
 	}
 
 	/** Returns a 2D array of Color values, representing the image data
@@ -51,7 +55,10 @@ public class Runigram {
 		//// Replace the following statement with your code.
 		for (int i = 0; i < numRows; i++) {
 			for (int j = 0; j < numCols; j++) {
-				image[i][j] = new Color(in.readInt(), in.readInt(), in.readInt());
+				int r = in.readInt();
+				int g = in.readInt();
+				int b = in.readInt();
+				image[i][j] = new Color(r, g, b);
 			}
 		}
 		return image;
@@ -150,7 +157,14 @@ public class Runigram {
 	 */
 	public static Color[][] scaled(Color[][] image, int width, int height) {
 		//// Replace the following statement with your code
-		return null;
+		Color[][] newImage = new Color[height][width];
+		for (int i = 0; i < height; i++) {
+			for (int j = 0; j < width; j++) {
+				newImage[i][j] = 
+				image[i * (image.length / height)][j * (image[0].length / width)];
+			}
+		}
+		return newImage;
 	}
 	
 	/**
